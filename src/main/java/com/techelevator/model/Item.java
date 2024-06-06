@@ -1,12 +1,13 @@
+
 package com.techelevator.model;
 
 import java.math.BigDecimal;
 
 public class Item {
-    private  String location;
-    private  String name;
+    private String location;
+    private String name;
 
-    private  String type;
+    private String type;
 
     private BigDecimal cost;
 
@@ -49,4 +50,11 @@ public class Item {
     }
 
 
+    public int getInventoryCount() {
+        return inventoryCount;
+    }
+
+    public void setInventoryCount(int inventoryCount) {
+        this.inventoryCount = inventoryCount;
+    }
 }

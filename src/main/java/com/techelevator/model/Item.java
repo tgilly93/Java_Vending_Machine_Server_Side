@@ -1,12 +1,16 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 07a2ca605e39421f284a48fbc2af71da71cdc15c
 package com.techelevator.model;
 
 import java.math.BigDecimal;
 
 public class Item {
-    private  String location;
-    private  String name;
+    private String location;
+    private String name;
 
-    private  String type;
+    private String type;
 
     private BigDecimal cost;
 
@@ -48,6 +52,7 @@ public class Item {
         this.cost = cost;
     }
 
+
     public int getInventoryCount() {
         return inventoryCount;
     }
@@ -58,4 +63,7 @@ public class Item {
 
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 07a2ca605e39421f284a48fbc2af71da71cdc15c

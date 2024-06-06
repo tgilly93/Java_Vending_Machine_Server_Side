@@ -29,8 +29,6 @@ public class Inventory {
 
            if (InventoryCount > 0){
                if (item.getInventoryCount() > 0){
-                   item.setInventoryCount(item.getInventoryCount() - 1);
-                   InventoryCount-=1;
                    return item;
 
                } else {

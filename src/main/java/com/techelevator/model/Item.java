@@ -47,4 +47,12 @@ public class Item {
     public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
+
+    public int getInventoryCount() {
+        return inventoryCount;
+    }
+
+    public void setInventoryCount(int inventoryCount) {
+        this.inventoryCount = inventoryCount;
+    }
 }

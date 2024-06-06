@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> c90955bc2baf7dd8447653e891e87af457469529
 package com.techelevator.model;
+
 
 import java.math.BigDecimal;
 

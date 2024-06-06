@@ -1,9 +1,5 @@
 package com.techelevator.model;
 
-<<<<<<< HEAD
-public class Inventory {
-}
-=======
 import java.util.List;
 
 public class Inventory {
@@ -18,4 +14,4 @@ public class Inventory {
     }
 }
 
->>>>>>> 3afa2aafb781d2de47f1ad4d31fd8d142822e601
+

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 07a2ca605e39421f284a48fbc2af71da71cdc15c
 package com.techelevator.model;
 
 import java.math.BigDecimal;
@@ -63,7 +59,3 @@ public class Item {
 
 
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 07a2ca605e39421f284a48fbc2af71da71cdc15c

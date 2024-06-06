@@ -1,4 +1,3 @@
-
 package com.techelevator.model;
 
 import java.math.BigDecimal;
@@ -57,4 +56,6 @@ public class Item {
     public void setInventoryCount(int inventoryCount) {
         this.inventoryCount = inventoryCount;
     }
+
+
 }

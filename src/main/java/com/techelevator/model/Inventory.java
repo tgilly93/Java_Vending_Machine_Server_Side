@@ -21,12 +21,13 @@ public class Inventory {
     }
 
 
-    public Item dispenseItem(String location){
+    public Item dispenseItem(String location, Money money){
 
        if(inventory.containsKey(location.toUpperCase())){
         int index = itemInventory.indexOf(inventory.get(location.toUpperCase()));
+        Item item = itemInventory.get(index);
         if(inventoryCount > 0){
-           if (itemInventory.get(index).getInventoryCount() > 0) {
+           if (item.getInventoryCount() > 0 && money.getValue().compareTo(item.getCost()) >= 0) {
                itemInventory.get(index).setInventoryCount(itemInventory.get(index).getInventoryCount() -1);
                inventoryCount --;
 

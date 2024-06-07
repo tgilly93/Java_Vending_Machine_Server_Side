@@ -11,9 +11,10 @@ import java.util.Scanner;
 
 public class ConsoleService {
    private boolean valid = false;
+   private BigDecimal cartTotal = BigDecimal.valueOf(0.00);
    Inventory inventory = new Inventory();
    Bank bank = new Bank();
-Money moneyInserted = new Money(BigDecimal.valueOf(0.00));
+   Money moneyInserted = new Money(BigDecimal.valueOf(0.00));
    int menu = 1;
 
    public void printStartUp() {
@@ -87,6 +88,7 @@ Money moneyInserted = new Money(BigDecimal.valueOf(0.00));
                dispense();
                break;
             case 3:
+               finishTransaction();
                break;
             default:
                System.out.println("Invalid selection");
@@ -114,6 +116,7 @@ Money moneyInserted = new Money(BigDecimal.valueOf(0.00));
       if (item != null) {
          System.out.println(item.toString());
          moneyInserted.updateMoney(item.getCost());
+         cartTotal = cartTotal.add(item.getCost());
       }
          menu = 2;
          printMenu(menu);
@@ -144,4 +147,43 @@ valid = false;
       printMenu(menu);
 
    }
+
+   public void finishTransaction(){
+      //return change
+      getChange();
+      //add amount of money spent to Bank Class
+      bank.setBankTotal(cartTotal);
+      //reset moneyInserted to 0
+      moneyInserted.updateMoney(BigDecimal.valueOf(0.00));
+      //return user back to main menu
+      menu = 1;
+      valid = false;
+      printMenu(menu);
+   }
+
+   public void getChange(){
+      int quarters = 0;
+      int dimes = 0;
+      int nickels = 0;
+
+      double totalCents = moneyInserted.getValue().doubleValue();
+      int totalCentsInt = (int) (totalCents * 100);
+
+
+      quarters = totalCentsInt / 25;
+      totalCentsInt %= 25;
+
+      dimes = totalCentsInt / 10;
+      totalCentsInt %= 10;
+
+      nickels = totalCentsInt / 5;
+      totalCentsInt %= 5;
+
+      System.out.println("Your change is " + quarters + " quarters, " + dimes + " dimes, and " + nickels + " nickels.");
+
+
+   }
+
+
+
 }

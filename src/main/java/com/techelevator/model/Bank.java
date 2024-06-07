@@ -21,3 +21,5 @@ public class Bank {
         return totalAmountInserted;
     }
 }
+
+//Take in money method

@@ -4,6 +4,7 @@ import com.techelevator.model.*;
 import  java.lang.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ public class ConsoleService {
    private boolean valid = false;
    Inventory inventory = new Inventory();
    Bank bank = new Bank();
-Money moneyInserted;
+Money moneyInserted = new Money(BigDecimal.valueOf(0.00));
    int menu = 1;
 
    public void printStartUp() {
@@ -28,6 +29,8 @@ Money moneyInserted;
          System.out.println("(2) Purchase");
          System.out.println("(3) Exit");
       } else {
+         String message = MessageFormat.format("Current Money Provided: {0}", moneyInserted );
+         System.out.println(message);
          System.out.println("(1) Feed Money");
          System.out.println("(2) Select Product");
          System.out.println("(3) Finish Transaction");
@@ -107,13 +110,14 @@ Money moneyInserted;
 
       System.out.println("Make a selection");
       String choice = userInput.nextLine();
-      Item item = inventory.dispenseItem(choice);
+      Item item = inventory.dispenseItem(choice, moneyInserted);
       if (item != null) {
          System.out.println(item.toString());
-      } else {
+         moneyInserted.updateMoney(item.getCost());
+      }
          menu = 2;
          printMenu(menu);
-      }
+
    }
 
    public void feedMoney() {
@@ -135,6 +139,9 @@ valid = false;
          }
 
       }
+      valid = false;
+      menu = 2;
+      printMenu(menu);
 
    }
 }

@@ -61,7 +61,7 @@ public class Item {
 
     @Override
     public String toString(){
-        return MessageFormat.format("Location: {0} - Item: {1} - Price: ${2}",getLocation(),getName(),getCost());
+        return MessageFormat.format("Location: {0} - Item: {1} - Price: ${2} - x{3}",getLocation(),getName(),getCost(),getInventoryCount());
     }
 
 

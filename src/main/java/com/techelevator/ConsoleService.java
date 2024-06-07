@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class ConsoleService {
    private  boolean valid = false;
-   List<Item> inventory;
+   Inventory inventory = new Inventory();
+   int menu = 1;
 
    public  void printStartUp(){
       System.out.println("*********************************************");
@@ -17,10 +18,16 @@ public class ConsoleService {
       System.out.println("*********************************************");
    }
 
-   public void printMenu() {
-      System.out.println("(1) Display Vending Machine Items");
-      System.out.println("(2) Purchase");
-      System.out.println("(3) Exit");
+   public void printMenu(int menu) {
+      if(menu == 1) {
+         System.out.println("(1) Display Vending Machine Items");
+         System.out.println("(2) Purchase");
+         System.out.println("(3) Exit");
+      }else{
+         System.out.println("(1) Feed Money");
+         System.out.println("(2) Select Product");
+         System.out.println("(3) Finish Transaction");
+      }
       Scanner userInput = new Scanner(System.in);
       int selected = 0;
       while (!valid) {
@@ -28,10 +35,7 @@ public class ConsoleService {
          try {
             selected = Integer.parseInt(userInput.nextLine());
             valid = true;
-           choiceSelected(selected);
-         } catch (NumberFormatException e) {
-            valid = false;
-            System.out.println("Invalid Option");
+           choiceSelected(selected, menu);
          } catch (Exception e) {
             valid = false;
             System.out.println("Invalid Option");
@@ -40,36 +44,72 @@ public class ConsoleService {
       }
    }
 
-   public void choiceSelected(int choice){
-      switch (choice){
-         case 1:
-            System.out.println("Displaying items...");
-            displayInventory();
-            break;
-         case 2:
-            System.out.println("You selected 2");
-            break;
-
-         case 3:
-            System.out.println("You selected 3, Goodbye!");
-            System.exit(0);
-            break;
-
-         case 4:
-            System.out.println("You selected 4");
-            break;
-         default:
-            System.out.println("Invalid selection");
-            valid = false;
-            printMenu();
+   public void choiceSelected(int choice, int menu){
+      if(menu == 1){
+         switch (choice) {
+            case 1:
+               System.out.println("Displaying items...");
+               displayInventory();
+               printMenu(menu);
+                break;
+            case 2:
+               System.out.println("You selected 2");
+               menu = 2;
+               valid = false;
+               printMenu(menu);
+               break;
+            case 3:
+               System.out.println("You selected 3, Goodbye!");
+               System.exit(0);
+               break;
+            case 4:
+               System.out.println("You selected 4");
+               break;
+            default:
+               System.out.println("Invalid selection");
+               valid = false;
+               menu = 1;
+               printMenu(menu);
+         }
+      }else {
+         switch (choice){
+            case 1:
+               break;
+            case 2:
+               dispense();
+               break;
+            case 3:
+               break;
+            default:
+               System.out.println("Invalid selection");
+               valid = false;
+               menu = 2;
+               printMenu(menu);
+         }
       }
    }
    public  void displayInventory(){
-      inventory = InventoryGenerator.getListOfItemsFromFile();
-      for(Item item : inventory){
-         System.out.println(item.toString());
-      }
+     inventory.display();
+     valid = false;
 
    }
+
+   public void dispense() {
+      displayInventory();
+      Scanner userInput = new Scanner(System.in);
+
+
+         System.out.println("Make a selection");
+         String choice = userInput.nextLine();
+         Item item = inventory.dispenseItem(choice);
+         if (item != null) {
+            System.out.println(item.toString());
+         }else{
+            menu = 2;
+            printMenu(menu);
+         }
+   }
+
+
 
 }

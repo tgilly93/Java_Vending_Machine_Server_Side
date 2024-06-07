@@ -12,7 +12,7 @@ public class Application {
 	public static void main(String[] args) {
 		ConsoleService service = new ConsoleService();
 		service.printStartUp();
-		service.printMenu();
+		service.printMenu(1);
 
 
 

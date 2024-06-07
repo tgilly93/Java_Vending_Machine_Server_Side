@@ -13,9 +13,10 @@ public class Bank {
         totalAmountInserted = BigDecimal.valueOf(0.00);
 
     }
-    public void addCoin(Money money) {
-        totalMoney = totalMoney.add(money.getValue());
-        totalAmountInserted = totalAmountInserted.add(money.getValue());
+    public void addCoin(BigDecimal money) {
+        Money money1 = new Money(money);
+        totalMoney = totalMoney.add(money1.getValue());
+        totalAmountInserted = totalAmountInserted.add(money1.getValue());
     }
     public Money getTotalMoney() {
         this.bankTotal = new Money(totalMoney);

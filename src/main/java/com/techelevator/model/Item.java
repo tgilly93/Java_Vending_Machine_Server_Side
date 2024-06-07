@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30e3e6685850d8daa96f6507a79ca5f58b10205c
 package com.techelevator.model;
 
 
 import java.math.BigDecimal;
+import java.text.MessageFormat;
 
 public class Item {
     private String location;
@@ -57,6 +61,11 @@ public class Item {
 
     public void setInventoryCount(int inventoryCount) {
         this.inventoryCount = inventoryCount;
+    }
+
+    @Override
+    public String toString(){
+        return MessageFormat.format("Location: {0} - Item: {1} - Price: ${2} - x{3}",getLocation(),getName(),getCost(),getInventoryCount());
     }
 
 

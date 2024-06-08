@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 9d02a4824eecdef9e75bd0c70bb4d92e42e6ec30
 package com.techelevator.model;
 
 

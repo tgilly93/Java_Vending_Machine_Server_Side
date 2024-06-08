@@ -11,7 +11,12 @@ import java.util.Scanner;
 
 public class InventoryGenerator {
 
+<<<<<<< HEAD
     public static List<Item> getListOfItemsFromFile(String absolutePath){
+=======
+
+    public static List<Item> getListOfItemsFromFile(){
+>>>>>>> c9b2096d125e7ab4935831edc1b011e585679ab9
         List<Item> items = new ArrayList<>();
         File inputFile = getInventoryFile("vendingmachine.csv");
 

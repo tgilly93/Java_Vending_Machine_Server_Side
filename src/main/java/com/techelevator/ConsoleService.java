@@ -204,6 +204,7 @@ public class ConsoleService {
         //add amount of money spent to Bank Class
         bank.setBankTotal(cartTotal);
         //reset moneyInserted to 0
+        moneyInserted.setValue(BigDecimal.ZERO);
         bank.clearInserted();
         try {
             logger = new Logger(Log_Txt);

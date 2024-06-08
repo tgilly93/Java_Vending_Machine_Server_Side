@@ -52,7 +52,7 @@ public class Item {
 
 
     public int getInventoryCount() {
-        return inventoryCount;
+        return this.inventoryCount;
     }
 
     public void setInventoryCount(int inventoryCount) {

@@ -30,6 +30,9 @@ public class Bank {
     public void setBankTotal(BigDecimal bankTotal) {
         this.bankTotal = bankTotal;
     }
+    public void clearInserted(){
+        this.moneyInserted.setValue(BigDecimal.ZERO);
+    }
 }
 
 //Take in money method

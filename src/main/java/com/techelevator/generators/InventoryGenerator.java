@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class InventoryGenerator {
 
+
     public static List<Item> getListOfItemsFromFile(){
         List<Item> items = new ArrayList<>();
         File inputFile = getInventoryFile("vendingmachine.csv");

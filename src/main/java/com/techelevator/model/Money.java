@@ -22,4 +22,8 @@ public class Money {
     public String toString(){
         return getValue().toString();
     }
+
+    public void setValue(BigDecimal value) {
+        this.value = value;
+    }
 }

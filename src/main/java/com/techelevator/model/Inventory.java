@@ -2,7 +2,9 @@ package com.techelevator.model;
 
 import com.techelevator.generators.InventoryGenerator;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,13 +12,16 @@ public class Inventory {
     private List<Item> itemInventory;
     static int inventoryCount;
     private final Map<String, Item> inventory = new HashMap<>();
+    private final  Map<String, BigDecimal> salesReport = new LinkedHashMap<>();
 
     public Inventory() {
         this.itemInventory = InventoryGenerator.getListOfItemsFromFile();
         for (Item item : this.itemInventory) {
             inventoryCount += item.getInventoryCount();
             inventory.put(item.getLocation(),item);
+            salesReport.put(item.getName(), BigDecimal.valueOf(0));
         }
+        salesReport.put("Total Sales", BigDecimal.valueOf(0));
 
     }
 
@@ -66,7 +71,9 @@ public class Inventory {
         }
     }
 
-
+    public Map<String, BigDecimal> getSalesReport() {
+        return salesReport;
+    }
 }
 
 

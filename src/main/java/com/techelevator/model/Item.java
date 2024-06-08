@@ -18,6 +18,9 @@ public class Item {
 
     }
 
+    public Item(String a1, int i, BigDecimal bigDecimal) {
+    }
+
     public String getLocation() {
         return location;
     }

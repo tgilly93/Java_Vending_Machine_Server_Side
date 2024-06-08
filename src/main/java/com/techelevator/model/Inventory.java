@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 import com.techelevator.generators.InventoryGenerator;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -15,7 +16,8 @@ public class Inventory {
     private final  Map<String, BigDecimal> salesReport = new LinkedHashMap<>();
 
     public Inventory() {
-        this.itemInventory = InventoryGenerator.getListOfItemsFromFile();
+        File tempFile = null;
+        this.itemInventory = InventoryGenerator.getListOfItemsFromFile(tempFile.getAbsolutePath());
         for (Item item : this.itemInventory) {
             inventoryCount += item.getInventoryCount();
             inventory.put(item.getLocation(),item);
@@ -58,7 +60,8 @@ public class Inventory {
 
     public void refillInventory(){
         if (inventoryCount == 0){
-            this.itemInventory = InventoryGenerator.getListOfItemsFromFile();
+            File tempFile = null;
+            this.itemInventory = InventoryGenerator.getListOfItemsFromFile(tempFile.getAbsolutePath());
             for (Item item : this.itemInventory) {
                 inventoryCount += item.getInventoryCount();
             }

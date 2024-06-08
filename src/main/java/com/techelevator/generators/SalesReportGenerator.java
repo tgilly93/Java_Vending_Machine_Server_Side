@@ -28,7 +28,7 @@ public class SalesReportGenerator {
         return report;
     }
 
-    private static File getSalesFile(String s) {
+    public static File getSalesFile(String s) {
         File inputFile = new File(s);
         if (inputFile.exists() == false) { // checks for the existence of a file
             System.out.println(s + " does not exist");

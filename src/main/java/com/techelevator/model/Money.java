@@ -14,6 +14,12 @@ public class Money {
     }
 
     public BigDecimal updateMoney(BigDecimal value) {
-    return this.value.add(value);
+
+    return this.value = getValue().subtract(value);
+    }
+
+    @Override
+    public String toString(){
+        return getValue().toString();
     }
 }

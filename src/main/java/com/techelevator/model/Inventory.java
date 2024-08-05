@@ -88,13 +88,11 @@ public int getIndividualItemCount (String ItemCount){
         }
     }
 
-<<<<<<< HEAD
 
-    public void setItemInventory(List<Item> mockItems) {
-=======
+
+
     public Map<String, BigDecimal> getSalesReport() {
         return salesReport;
->>>>>>> 1a6e44fd02ebd9c57a4b259faf62d4b9df261ed2
     }
 }
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Module 1 Capstone - Vending Machine Software
 
 You're developing an application for the newest vending machine distributor,
@@ -130,3 +131,6 @@ For example:
 >
 >**TOTAL SALES** $11.05
 >```
+=======
+# Java_Vending_Machine_Server_Side
+>>>>>>> 160a17c921f1a0211107f328ee45c5a19014900d
